@@ -20,12 +20,14 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr); /* Selalu 4 gambar per baris */
       gap: 15px;
+      justify-items: center;
     }
 
     .gallery img {
       width: 100%;
+      max-width: 250px; /* Batasi ukuran maksimal agar rapi */
       border-radius: 10px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -67,11 +69,25 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    /* Supaya di HP tetap enak dilihat */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr); /* jadi 2 per baris di HP */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr; /* jadi 1 per baris di layar kecil */
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <h1>BKAD MEUBELAIR/INTERIOR</h1>
+  <h1>Galeri Foto Proyek Rumah Kayu</h1>
 
   <div class="gallery">
     <img src="bkad1.jpg" alt="Foto 1">
